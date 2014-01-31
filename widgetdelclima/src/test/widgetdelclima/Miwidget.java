@@ -226,10 +226,10 @@ public class Miwidget extends AppWidgetProvider{
    
 			Node forecastNode = srcDoc.getElementsByTagName("yweather:forecast").item(0);
 			myWeather.MinT = forecastNode.getAttributes().getNamedItem("low").getNodeValue().toString();			
-			maxT=myWeather.MinT;
+			minT=myWeather.MinT;
 						
 		    myWeather.MaxT = forecastNode.getAttributes().getNamedItem("high").getNodeValue().toString();
-			minT=myWeather.MaxT;
+			maxT=myWeather.MaxT;
 
 			/* A modo de control imprimo en el Logcat  	el contenido del objeto myWeather.toString*/			
 				
@@ -275,8 +275,8 @@ public class Miwidget extends AppWidgetProvider{
 					   remoteViews.setImageViewResource(R.id.clima_img,R.drawable.unknown);
 					   
 		   //Asignamos a cada elemento del lyput el texto correspondiente 
-           remoteViews.setTextViewText(R.id.temp,temp+"Âº"+unit_tmp);
-           remoteViews.setTextViewText(R.id.max_min,maxT+"Âº"+unit_tmp+"      "+minT+"Âº"+unit_tmp);
+           remoteViews.setTextViewText(R.id.temp,temp+"°"+unit_tmp);
+           remoteViews.setTextViewText(R.id.max_min,"Máx: " + maxT+"°"+unit_tmp+"      "+"Mín: "+minT+"°"+unit_tmp);
            remoteViews.setTextViewText(R.id.city,city);
 		  
 		  }else{//error_flag=0 mostramos mensaje de error 
